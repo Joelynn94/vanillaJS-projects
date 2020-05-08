@@ -13,4 +13,4 @@
 * Error styling 
 * Success styling 
 
-![Form](images/CLI-team-template-engine.PNG)
+![Form](form-validator/form-validator.PNG)
