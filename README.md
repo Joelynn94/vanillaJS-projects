@@ -1,7 +1,6 @@
 # Vanilla JS Mini Projects 
 
-## Form Validator 
-### Front-End form validation 
+### Form Validator (Front-End)
 * Check username: 
   * Has a min character length of 3
   * Has a max character length of 15
