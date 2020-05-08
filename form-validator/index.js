@@ -94,15 +94,15 @@ function checkLength(input, min, max) {
 function checkPasswordsMatch(input1, input2) {
   // check if input1 and input2 are not equal
   if (input1.value !== input2.value) {
+    // call showError function with an error message
     showError(input2, 'Passwords do not match');
   }
 }
 
 // Form event listener
 form.addEventListener('submit', function (event) {
-  // pervent the default form action to refresh the page
+  // prevent the default form action to refresh the page
   event.preventDefault();
-
   // Call checkRequired function with the array of inputs
   checkRequired([username, email, password, password2]);
   // Call checkLength function - check the username input with a min of 3 characters and a max of 15 caharacters
