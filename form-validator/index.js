@@ -1,27 +1,27 @@
-// grab the form element
+// get the form element
 const form = document.querySelector('#form');
-// grab the username input
+// get the username input
 const username = document.querySelector('#username');
-// grab the email input
+// get the email input
 const email = document.querySelector('#email');
-// grab the password input
+// get the password input
 const password = document.querySelector('#password');
-// grab confirm password input
+// get confirm password input
 const password2 = document.querySelector('#password2');
 
 // Show input error message
 function showError(input, message) {
   // Get the parent element of all inputs
   const formControl = input.parentElement;
-  // Add the class error for styling and error message
+  // Add the class error for styling and an error message
   formControl.classList.add('error');
-  // Use the current form control to select the small element
+  // Use the current formControl to select the small element
   const small = formControl.querySelector('small');
   // set the small elements textContent to the message passed in to the function
   small.textContent = message;
 }
 
-// Show success outline
+// Show input success outline
 function showSuccess(input) {
   // Get the parent element of all inputs
   const formControl = input.parentElement;
@@ -29,23 +29,23 @@ function showSuccess(input) {
   formControl.classList.add('success');
 }
 
-// A fucntion to get the input.id of each field
+// A function to get the input.id of each field
 function getFieldName(input) {
   // taking the first letter of the field id and making it uppercase
-  // then concat the rest of the if using the slice method - starting at the 2nd position
+  // then concat the rest of the input.id using the slice method - starting at the 2nd position (1) of the string
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
-// Check email is valid with RegEx
+// Check if email is valid with RegEx
 function checkEmail(input) {
-  // Regular expression that matches an email address
+  // Regular expression for matching an email address format
   const mailformat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   // check if the email is in a valid format
-  // if the input value is valid - call showSuccess function
+  // if the input value is a valid format - call showSuccess function
   if (mailformat.test(input.value.trim())) {
     showSuccess(input);
   } else {
-    // otherwise - display error with showError function
+    // otherwise - display error styling and error message
     showError(input, `${getFieldName(input)} is not valid`);
   }
 
@@ -53,39 +53,39 @@ function checkEmail(input) {
   // return mailformat.test(String(email).toLowerCase());
 }
 
-// Check required fields - takes in an array of inputs
+// Check required input fields - takes in an array of inputs
 function checkRequired(inputArr) {
   // loop thorugh the array of inputs
   inputArr.forEach(function (input) {
-    // if input value is empty - display error with showError function
+    // if input value is empty - display error styling and error message
     if (input.value.trim() === '') {
-      // Using the input.id - display a message. Ex. email is required
+      // display error styling and error message. Ex. Email is required
       showError(input, `${getFieldName(input)} is required`);
     } else {
-      // else - display success with showSuccess function
+      // else - display success styling
       showSuccess(input);
     }
   });
 }
 
-// Check input length - takes in the input, min and max
+// Check input length - takes in the input, min character length and max character length
 function checkLength(input, min, max) {
-  // if the input values is less than the min required length
+  // if the input value is less than the min required length
   if (input.value.length < min) {
-    // show an error with a min message
+    // display error styling with a min character message
     showError(
       input,
       `${getFieldName(input)} must be at least ${min} characters`
     );
     // if the input values is more than the max required length
   } else if (input.value.length > max) {
-    // show an error with a max message
+    // display error styling with a max character message
     showError(
       input,
       `${getFieldName(input)} must be at less than ${max} characters`
     );
   } else {
-    // otherwise - call showSuccess funnction
+    // otherwise - display success styling
     showSuccess(input);
   }
 }
@@ -94,7 +94,7 @@ function checkLength(input, min, max) {
 function checkPasswordsMatch(input1, input2) {
   // check if input1 and input2 are not equal
   if (input1.value !== input2.value) {
-    // call showError function with an error message
+    // display error styling and error message
     showError(input2, 'Passwords do not match');
   }
 }
