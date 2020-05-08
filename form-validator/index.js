@@ -55,7 +55,7 @@ function checkEmail(input) {
 
 // Check required fields - takes in an array of inputs
 function checkRequired(inputArr) {
-  // loop of the array of inputs
+  // loop thorugh the array of inputs
   inputArr.forEach(function (input) {
     // if input value is empty - display error with showError function
     if (input.value.trim() === '') {
