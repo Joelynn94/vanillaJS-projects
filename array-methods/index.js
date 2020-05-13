@@ -24,16 +24,18 @@ async function getRandomUser() {
   const data = await response.json();
   console.log(data);
 
-  // getting the first item in results the array
+  // getting the first item in the results the array
   const user = data.results[0];
   console.log(user);
 
+  // creating a new user object
   const newUser = {
     name: `${user.name.first} ${user.name.last}`,
     money: Math.floor(Math.random() * 1000000),
   };
 
   console.log(newUser);
+  // push the new user object to the users array
   addData(newUser);
 }
 
